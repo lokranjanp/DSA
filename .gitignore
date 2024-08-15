@@ -54,3 +54,4 @@ dkms.conf
 .cmake-build-debug/
 CMakeFiles/
 CMakeLists.txt
+cmake-build-debug

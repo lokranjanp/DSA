@@ -1,5 +1,0 @@
-# ninja log v6
-3	266	1723716708706514674	CMakeFiles/datastructures.dir/hello.cpp.o	9bcedc67c55fd34b
-1	2114	1723716708704016902	CMakeFiles/datastructures.dir/singlylinkedlist.cpp.o	1efd795c7096798b
-3	2121	1723716708706071385	CMakeFiles/datastructures.dir/doublylinkedlist.cpp.o	97554b29c2975543
-3	2101	1723716708706307175	CMakeFiles/datastructures.dir/stack.cpp.o	cb83d35048366e56
