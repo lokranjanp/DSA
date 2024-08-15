@@ -1,26 +1,40 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class Node{
+class Node {
 public:
-    int val;
-    Node *next;
+    int val = 0;
+    Node *next = nullptr;
 
-    Node(){}
+    Node() {}
 
-    Node(int val)
-    {
+    Node(int val) {
         this->val = val;
-        this->next = NULL;
+        this->next = nullptr;
     }
 
-    Node(int val, Node *next)
-    {
+    Node(int val, Node *next) {
         this->val = val;
         this->next = next;
     }
 
-    Node *createlist()
+    Node *createlist();
+
+    static void printlist(Node *node);
+
+    Node *insertend(Node *head, int data);
+
+    Node* insertfront(Node *head, int data);
+
+    Node *deletefront(Node *head);
+
+    Node *deleteend(Node *head);
+
+    Node *insertafter(Node *head, int data, int key);
+
+};
+
+    Node* Node::createlist()
     {
         int inputval = 0;
         cin>>inputval;
@@ -39,7 +53,7 @@ public:
         return head;
     }
 
-    void printlist(Node *node)
+    void Node::printlist(Node *node)
     {
         while(node != nullptr)
         {
@@ -49,7 +63,7 @@ public:
         cout<<endl;
     }
 
-    Node* insertend(Node *head, int data)
+    Node* Node::insertend(Node *head, int data)
     {
         Node *newnode = new Node(data);
         if (head == nullptr)
@@ -64,14 +78,14 @@ public:
         return head;
     }
 
-    Node* insertfront(Node *head, int data)
+    Node* Node::insertfront(Node *head, int data)
     {
         Node *newnode = new Node(data);
         newnode->next = head;
         return newnode;
     }
 
-    Node* deletefront(Node *head)
+    Node* Node::deletefront(Node *head)
     {
         if (head == nullptr)
             return nullptr;
@@ -82,7 +96,7 @@ public:
         return head;
     }
 
-    Node* deleteend(Node *head)
+    Node* Node::deleteend(Node *head)
     {
         if (head == nullptr || head->next == nullptr)
         {
@@ -100,7 +114,7 @@ public:
         return head;
     }
 
-    Node* insertafter(Node *head, int data, int key)
+    Node* Node::insertafter(Node *head, int data, int key)
     {
         Node *ptr = head;
 
@@ -122,7 +136,7 @@ public:
 
         return head;
     }
-};
+
 
 int main()
 {

@@ -1,29 +1,32 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class DNode{
+class DNode {
 public:
     int val;
     DNode *next;
     DNode *prev;
 
-    DNode(){}
+    DNode() {}
 
-    DNode(int data)
-    {
+    DNode(int data) {
         this->val = data;
         this->next = nullptr;
         this->prev = nullptr;
     }
 
-    DNode(int data, DNode *nextnode, DNode *prevnode)
-    {
+    DNode(int data, DNode *nextnode, DNode *prevnode) {
         this->val = data;
         this->next = nextnode;
         this->prev = prevnode;
     }
 
-    void printlist(DNode *head)
+    void printlist(DNode *head);
+
+    DNode *createlist();
+
+};
+    void DNode::printlist(DNode *head)
     {
         while(head != nullptr)
         {
@@ -33,7 +36,7 @@ public:
         cout<<endl;
     }
 
-    DNode *createlist()
+    DNode * DNode::createlist()
     {
         cout<<"Enter the value of the node :";
         int inputval;
@@ -57,7 +60,7 @@ public:
 
         return head;
     }
-};
+
 
 int main()
 {
