@@ -137,6 +137,17 @@ public:
         return head;
     }
 
+    int countnode(Node *head)
+    {
+        int count = 0;
+        while(head!=nullptr){
+            count++;
+            head = head->next;
+        }
+
+        return count;
+    }
+
 
 int main()
 {

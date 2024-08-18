@@ -25,6 +25,8 @@ public:
 
     DNode *createlist();
 
+    int nodecount(DNode *head);
+
 };
     void DNode::printlist(DNode *head)
     {
@@ -59,6 +61,16 @@ public:
         }
 
         return head;
+    }
+
+    int DNode::nodecount(DNode *head) {
+        int count = 0;
+        while(head != nullptr){
+            count++;
+            head = head->next;
+        }
+
+        return count;
     }
 
 
