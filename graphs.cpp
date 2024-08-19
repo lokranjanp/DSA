@@ -1,6 +1,27 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+void dfs(int node, vector<bool>&vis, vector<int>&ans, vector<vector<int>>&adjmat){
+    vis[node] = true;
+    ans.push_back(node);
+
+    for(int i = 0; i<vis.size(); ++i)
+    {
+        if(adjmat[node][i]==1 && !vis[i])
+            dfs(i, vis, ans, adjmat);
+    }
+}
+
+vector<int> dfstrav(int N, vector<vector<int>>&adjmat, int start){
+    vector<bool> vis(N, false);
+    vector<int>ans;
+    int startnode = start;
+
+    dfs(startnode, vis, ans, adjmat);
+    return ans;
+}
+
+
 vector<int> bfs(int num, vector<vector<int>>&adj, int start){
     queue<int>q;
     vector<bool>vis(num, false);
@@ -47,8 +68,8 @@ int main(){
         }
     }
 
-    vector<int> ans = bfs(num, adjmat, 0);
-    cout<<endl<<"BFS Traversal : ";
+    vector<int> ans = dfstrav(num, adjmat, 0);
+    cout<<endl<<"DFS Traversal : ";
     printvector(ans);
     return 0;
 }
