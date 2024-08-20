@@ -55,19 +55,49 @@ void inorder(treenode* root) {
     }
 }
 
+int maxheight(treenode *root){
+    if(root == nullptr)
+        return 0;
+
+    int left = maxheight(root->left)+1;
+    int right = maxheight(root->right)+1;
+
+    return max(left, right);
+}
+
+int count_leafnode(treenode *root){
+    if(root == nullptr)
+        return 0;
+    if(root->right == nullptr && root->left == nullptr)
+        return 1;
+
+    int left = count_leafnode(root->left);
+    int right = count_leafnode(root->right);
+
+    return left+right;
+}
+
+int count_totalnode(treenode *root){
+    if(root == nullptr)
+        return 0;
+
+    return count_totalnode(root->right) + count_totalnode(root->left) + 1;
+}
+
+
 int main() {
-    treenode* root = new treenode(50);
-    root = insert(root, 30);
+    treenode* root = new treenode(5);
+    root = insert(root, 10);
     root = insert(root, 20);
     root = insert(root, 40);
-    root = insert(root, 70);
+    root = insert(root, 50);
     root = insert(root, 60);
     root = insert(root, 80);
 
     inorder(root);
     cout<<endl;
 
-    cout<<search(root, 81)<<endl;
+    cout<<count_totalnode(root)<<endl;
     delete root;
     return 0;
 }
