@@ -5,10 +5,10 @@ void dfs(int node, vector<bool>&vis, vector<int>&ans, vector<vector<int>>&adjmat
     vis[node] = true;
     ans.push_back(node);
 
-    for(auto it : adjmat[node])
+    for(int i = 0; i<vis.size(); ++i)
     {
-        if(!vis[it])
-            dfs(it, vis, ans, adjmat);
+        if(adjmat[node][i]==1 && !vis[i])
+            dfs(i, vis, ans, adjmat);
     }
 }
 
