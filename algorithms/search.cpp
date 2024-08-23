@@ -9,6 +9,25 @@ int linearsearch(vector<int>&nums, int key){
     return -1;
 }
 
+int binarysearch(vector<int>&nums, int key){
+    int low = 0, high = nums.size()-1;
+
+    while(low<=high){
+        int mid = low + (high-low)/2;
+
+        if(nums[mid]<key)
+            low = mid+1;
+
+        if(nums[mid]>key)
+            high = mid-1;
+
+        else if(nums[mid] == key)
+            return mid;
+    }
+
+    return -1;
+}
+
 int main(){
     int size = 0;
     cout<<"enter size of array : ";
@@ -22,5 +41,5 @@ int main(){
     int searchval = -1;
     cout<<"Enter value to be searched : ";
     cin>>searchval;
-    cout<<linearsearch(nums, searchval)<< endl;
+    cout<<binarysearch(nums, searchval)<< endl;
 }
