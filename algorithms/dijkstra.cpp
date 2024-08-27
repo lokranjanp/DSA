@@ -8,7 +8,7 @@ using namespace std;
 /* Time complexity: O(V^2 + |E|) ~= O(V^2) for adjacency matrix representation
  * where V is the number of vertices and E is the number of edges in the graph.*/
 
-#define INF 0x3f3f3f3f
+#define INF 1e9+7
 
 typedef pair<int, int> node_pair;
 
